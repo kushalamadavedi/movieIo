@@ -1,0 +1,39 @@
+
+<div class="row">
+    <div class="col-md-4" *ngFor = "let poster of getmovie">
+        <div class="card mt-3">
+            <figure class="movieCard "> 
+                <img class="w-100" src="https://image.tmdb.org/t/p/w500/{{poster.backdrop_path}}" alt="{{poster.title}}" title="{{poster.title}}">
+
+                <figcaption>
+                    <div class="movietitle text-white">
+                        <div class="row">
+                           <div class="col-10">
+                             <h3>{{poster.title}}</h3>
+                           </div>
+                           <div class="col-2 rating align-self-center">
+                                <span class="p-1 rating"
+                                [ngClass]="{
+                                    'bg-success': poster.vote_average >= 7.5,
+                                    'bg-warning': poster.vote_average >=5 && poster.vote_average < 7.5,
+                                    'bg-danger': poster.vote_average < 5
+                                }"
+                                > 
+                                    {{poster.vote_average}}
+                                </span>
+                           </div>
+                        </div>
+                </div>
+            </figcaption>
+
+                <div class="movieoverview">
+                    <h4>{{poster.title}} </h4>
+                    <em> Overview </em>
+                    <p>
+                        {{poster.overview}}
+                    </p>
+                  </div>
+            </figure>
+        </div>
+    </div>
+</div>
